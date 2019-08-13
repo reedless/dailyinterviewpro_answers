@@ -7,7 +7,21 @@ For example, "biting" and "sitting" have an edit distance of 2 (substitute b for
 '''
 
 def distance(s1, s2):
-    # Fill this in.
+    matches = []
+    for candidate in s1:
+        for i in range(len(s2)):
+            if (candidate == s2[i]):
+                if (not i in matches):
+                    matches.append(i)
+                    break
+    #matches must be strictly increasing, remove larger number
+    for i in range(len(matches) - 1):
+        if (matches[i] > matches[i+1]):
+            matches.pop(i)
+    
+    return len(s2) - len(matches)
 
 print (distance('biting', 'sitting'))
 # 2
+print (distance('ga', 'wanting'))
+# 6

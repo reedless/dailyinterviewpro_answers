@@ -12,7 +12,16 @@ This should return 3 (you may assume that any nodes with the same value are the 
 '''
 
 def intersection(a, b):
-    #something
+    candidate = b
+    while candidate:
+        list = a
+
+        while list:
+            if (candidate == list):
+                return candidate
+            list = list.next
+
+        candidate = candidate.next
 
 class Node(object):
     def __init__(self, val):
@@ -21,7 +30,7 @@ class Node(object):
     def prettyPrint(self):
         c = self
         while c:
-            print c.val,
+            print (c.val)
             c = c.next
 
 a = Node(1)

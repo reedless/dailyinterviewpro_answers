@@ -28,7 +28,7 @@ class Solution:
             return (sum - 10)
         return sum
 
-    def addTwoNumbers(self, l1, l2, c = 0):
+    def addTwoNumbers(self, l1, l2):
         if (not l1) and (not l2):
             return None
         elif not l1:
@@ -55,4 +55,4 @@ result = Solution().addTwoNumbers(l1, l2)
 while result:
   print (result.val),
   result = result.next
-# 7 0 8
+# 7 0 8 5 1

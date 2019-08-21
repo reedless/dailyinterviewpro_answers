@@ -24,7 +24,7 @@ class Solution:
                 if (current_letter == s[i-1]):
                     candidate = s[current_index : i]
                     if (self.isPalindrome(candidate)):
-                        return candidate
+                        return candidate #wrong, should put all palindrome into list and find longest
             current_index += 1
         return ""
 

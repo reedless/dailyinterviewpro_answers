@@ -13,7 +13,8 @@ class Solution:
     def moveZeros(self, nums):
         last = len(nums) - 1
         i = 0
-        while i <= last:
+        while i < last:
+            print(i, last)
             if (nums[i] == 0):
                 j = i
                 while(j < last):

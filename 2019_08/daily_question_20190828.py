@@ -11,24 +11,21 @@ This input should return [(1, 3), (4, 10), (20, 25)] since
 '''
 
 def merge(intervals):
-    covered = []
-    for interval in intervals:
-        for i in range(interval[0]+1, interval[1]):
-            if (i not in covered):
-                covered.append(i)
+    i = 0
+    while i < len(intervals):
+        curr = intervals[i]
+        j = i+1
+        while j < len(intervals):
+            next = intervals[j]
+            if (curr[1] > next[0] or next[1] > curr[0]):
+                intervals.pop(j)
+                intervals.pop(i)
+                left = min(curr[0], next[0])
+                right = max(curr[1], next[1])
+                intervals.append((left, right))
+            j += 1
+        i += 1
+    return intervals
 
-    covered.sort()
-
-    unique = []
-
-    for i in range(len(covered)-1):
-        if (not covered[i]+1 == covered[i+1]):
-            unique.append(covered[i])
-            unique.append(covered[i+1])
-    unique.append(covered[-1])
-
-
-    return unique
-
-print (merge([(1, 3), (5, 8), (4, 10), (20, 25)]))
+print(merge([(1, 3), (5, 8), (4, 10), (20, 25)]))
 # [(1, 3), (4, 10), (20, 25)]
